@@ -8,14 +8,16 @@ This repository contains the "Storefront backend API" app.
 
 ## package.json file
 
-For Windows 10 system (I'm on Windows 10), use these lines at "scripts" section (default):
+For Windows 10 system (I'm on Windows 10), use these lines at "scripts" section:
 
 `"watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",`
+
 `"test": "npm run tsc & set \"ENV=test\" & db-migrate --env test up & jasmine-ts & db-migrate --env test down",`
 
 For a Unix or macOS based system, use these lines at "scripts" section:
 
 `"watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess 'node ./dist/server.js'",`
+
 `"test": "npm run tsc && ENV=test && db-migrate --env test up && jasmine-ts && db-migrate --env test down",`
 
 ## Database
@@ -70,13 +72,12 @@ or run
 Postman Collection json file (`Storefront API.postman_collection.json`)` for the Storefront API is at the root of the project, ready to be imported into the Postman app workspace.
 
 ## dotenv file contents
-`
-POSTGRES_DB=store
-POSTGRES_TEST_DB=store_test
-POSTGRES_USER=store_user
-POSTGRES_PASSWORD=password123
-ENV=dev
-BCRYPT_PASSWORD=kaoruvorpal
-SALT_ROUNDS=10
-TOKEN_SECRET=crawfish
-`
+`POSTGRES_DB=store`
+`POSTGRES_TEST_DB=store_test`
+`POSTGRES_USER=store_user`
+`POSTGRES_PASSWORD=password123`
+`ENV=dev`
+`BCRYPT_PASSWORD=kaoruvorpal`
+`ALT_ROUNDS=10`
+`TOKEN_SECRET=crawfish`
+
