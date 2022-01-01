@@ -69,5 +69,14 @@ or run
 
 Postman Collection json file (`Storefront API.postman_collection.json`)` for the Storefront API is at the root of the project, ready to be imported into the Postman app workspace.
 
-
-
+## dotenv file contents
+`
+POSTGRES_DB=store
+POSTGRES_TEST_DB=store_test
+POSTGRES_USER=store_user
+POSTGRES_PASSWORD=password123
+ENV=dev
+BCRYPT_PASSWORD=kaoruvorpal
+SALT_ROUNDS=10
+TOKEN_SECRET=crawfish
+`
