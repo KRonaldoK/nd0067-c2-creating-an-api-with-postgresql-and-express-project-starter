@@ -28,7 +28,7 @@ These are the notes from a meeting with the frontend developer that describe wha
 - [OPTIONAL] category
 
 #### Database for Product data shape
-- Table: Product (id:varchar, name:varchar, price: number(10,2))
+- Table: Product (id:integer, name:varchar, price: number(10,2))
 
 #### User
 - id
@@ -37,7 +37,7 @@ These are the notes from a meeting with the frontend developer that describe wha
 - password
 
 #### Database for User data shape
-- Table: User (id:varchar, first_name:varchar, last_name:varchar, password:varchar)
+- Table: User (id:integer, first_name:varchar, last_name:varchar, password:varchar)
 
 #### Orders
 - id
@@ -47,6 +47,6 @@ These are the notes from a meeting with the frontend developer that describe wha
 - status of order (active or complete)
 
 #### Database for Order data shape
-- Table: Order (id:varchar, user_id:varchar [foreign key to user table], status:varchar)
-- Table: Order_Item (order_id:varchar [foreign key to order table], product_id:varchar [foreign key to product table], quantity:integer)
+- Table: Order (id:integer, user_id:integer [foreign key to user table], status:varchar)
+- Table: Order_Item (order_id:integer [foreign key to order table], product_id:integer [foreign key to product table], quantity:integer)
 

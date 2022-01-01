@@ -1,54 +1,73 @@
-# Storefront Backend Project
+# Storefront backend API
 
-## Getting Started
+This repository contains the "Storefront backend API" app.
 
-This repo contains a basic Node and Express app to get you started in constructing an API. To get started, clone this repo and run `yarn` in your terminal at the project root.
+## Installing
 
-## Required Technologies
-Your application must make use of the following libraries:
-- Postgres for the database
-- Node/Express for the application logic
-- dotenv from npm for managing environment variables
-- db-migrate from npm for migrations
-- jsonwebtoken from npm for working with JWTs
-- jasmine from npm for testing
+`npm install` to resolve dependencies
 
-## Steps to Completion
+## package.json file
 
-### 1. Plan to Meet Requirements
+For Windows 10 system (I'm on Windows 10), use these lines at "scripts" section (default):
 
-In this repo there is a `REQUIREMENTS.md` document which outlines what this API needs to supply for the frontend, as well as the agreed upon data shapes to be passed between front and backend. This is much like a document you might come across in real life when building or extending an API. 
+`"watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",`
+`"test": "npm run tsc & set \"ENV=test\" & db-migrate --env test up & jasmine-ts & db-migrate --env test down",`
 
-Your first task is to read the requirements and update the document with the following:
-- Determine the RESTful route for each endpoint listed. Add the RESTful route and HTTP verb to the document so that the frontend developer can begin to build their fetch requests.    
-**Example**: A SHOW route: 'blogs/:id' [GET] 
+For a Unix or macOS based system, use these lines at "scripts" section:
 
-- Design the Postgres database tables based off the data shape requirements. Add to the requirements document the database tables and columns being sure to mark foreign keys.   
-**Example**: You can format this however you like but these types of information should be provided
-Table: Books (id:varchar, title:varchar, author:varchar, published_year:varchar, publisher_id:string[foreign key to publishers table], pages:number)
+`"watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess 'node ./dist/server.js'",`
+`"test": "npm run tsc && ENV=test && db-migrate --env test up && jasmine-ts && db-migrate --env test down",`
 
-**NOTE** It is important to remember that there might not be a one to one ratio between data shapes and database tables. Data shapes only outline the structure of objects being passed between frontend and API, the database may need multiple tables to store a single shape. 
+## Database
 
-### 2.  DB Creation and Migrations
+1) Using pgAdmin for PostgresSQL, open psql tool using the menu: Tools -> PSQL Tool.
+Current user must be postgres. In psql run the following:
 
-Now that you have the structure of the databse outlined, it is time to create the database and migrations. Add the npm packages dotenv and db-migrate that we used in the course and setup your Postgres database. If you get stuck, you can always revisit the database lesson for a reminder. 
+`CREATE USER store_user WITH PASSWORD 'password123';`
 
-You must also ensure that any sensitive information is hashed with bcrypt. If any passwords are found in plain text in your application it will not pass.
+`CREATE DATABASE store;`
 
-### 3. Models
+`CREATE DATABASE store_test;`
 
-Create the models for each database table. The methods in each model should map to the endpoints in `REQUIREMENTS.md`. Remember that these models should all have test suites and mocks.
+2) At the root directory of the project, run:
 
-### 4. Express Handlers
+`db-migrate --env dev up`
 
-Set up the Express handlers to route incoming requests to the correct model method. Make sure that the endpoints you create match up with the enpoints listed in `REQUIREMENTS.md`. Endpoints must have tests and be CORS enabled. 
+## Start and Build
 
-### 5. JWTs
+To start the server, run
 
-Add JWT functionality as shown in the course. Make sure that JWTs are required for the routes listed in `REQUIUREMENTS.md`.
+`yarn watch`
 
-### 6. QA and `README.md`
+This will kick off the watcher library and start running the application on the port specified in server.ts.
 
-Before submitting, make sure that your project is complete with a `README.md`. Your `README.md` must include instructions for setting up and running your project including how you setup, run, and connect to your database. 
+This will also constantly compile the code in background to plain Javascript (compilation in watch mode).
 
-Before submitting your project, spin it up and test each endpoint. If each one responds with data that matches the data shapes from the `REQUIREMENTS.md`, it is ready for submission!
+To build/compile the api server just once while the server is down type:
+
+`npm run tsc`
+
+## Running unit tests
+
+Run `npm run test` to execute the unit tests via [jasmine-ts](https://www.npmjs.com/package/jasmine-ts).
+
+*This will run the models unit tests against the store test database, not the dev database*
+
+## Development server (Running)
+
+To start the server, run 
+
+`yarn watch`
+
+This will kick off the watcher library and start running the application on the port specified in server.ts.
+
+or run 
+
+`node dist/server` for a dev server.
+
+## API endpoints
+
+Postman Collection json file (`Storefront API.postman_collection.json`)` for the Storefront API is at the root of the project, ready to be imported into the Postman app workspace.
+
+
+
