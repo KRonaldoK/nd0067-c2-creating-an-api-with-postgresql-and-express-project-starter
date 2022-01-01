@@ -1,0 +1,418 @@
+{
+	"info": {
+		"_postman_id": "a5b8d515-ea2b-46d1-9e97-e89a9ee195d3",
+		"name": "Storefront API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "CREATE [product]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJmaXJzdF9uYW1lIjoiR2FsYXh5IiwibGFzdF9uYW1lIjoiUnVubmVyIiwicGFzc3dvcmQiOiIkMmIkMTAkbHRFSXVCZFJaNEhQUHdCQUQzcFJ3LnpidjRxYUJaWHpmTXQ3Ny5ZOEdaLlI1MWRudWU1UUMifSwiaWF0IjoxNjQwNjQxMjEwfQ.CgCsNtAokJHEK_Z9F7JozenRJBT4Oz3X_6vJUALZMV4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"name\": \"UX nano degree course\", \"price\": \"200.00\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/storefront/products/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"storefront",
+								"products",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "INDEX [product]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/storefront/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"storefront",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW [product]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/storefront/products/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"storefront",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "CREATE [user]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJmaXJzdF9uYW1lIjoiR2FsYXh5IiwibGFzdF9uYW1lIjoiUnVubmVyIiwicGFzc3dvcmQiOiIkMmIkMTAkbHRFSXVCZFJaNEhQUHdCQUQzcFJ3LnpidjRxYUJaWHpmTXQ3Ny5ZOEdaLlI1MWRudWU1UUMifSwiaWF0IjoxNjQwNjQxMjEwfQ.CgCsNtAokJHEK_Z9F7JozenRJBT4Oz3X_6vJUALZMV4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"first_name\": \"Galaxy\", \"last_name\": \"Runner\", \"password\": \"horse racing\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/storefront/users/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"storefront",
+								"users",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUTHENTICATE [user]",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"first_name\": \"Galaxy\", \"last_name\": \"Runner\", \"password\": \"horse racing\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/storefront/users/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"storefront",
+								"users",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW [user]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJmaXJzdF9uYW1lIjoiR2FsYXh5IiwibGFzdF9uYW1lIjoiUnVubmVyIiwicGFzc3dvcmQiOiIkMmIkMTAkbHRFSXVCZFJaNEhQUHdCQUQzcFJ3LnpidjRxYUJaWHpmTXQ3Ny5ZOEdaLlI1MWRudWU1UUMifSwiaWF0IjoxNjQwNjQxMjEwfQ.CgCsNtAokJHEK_Z9F7JozenRJBT4Oz3X_6vJUALZMV4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/storefront/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"storefront",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "INDEX [user]",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJmaXJzdF9uYW1lIjoiR2FsYXh5IiwibGFzdF9uYW1lIjoiUnVubmVyIiwicGFzc3dvcmQiOiIkMmIkMTAkbHRFSXVCZFJaNEhQUHdCQUQzcFJ3LnpidjRxYUJaWHpmTXQ3Ny5ZOEdaLlI1MWRudWU1UUMifSwiaWF0IjoxNjQwNjQxMjEwfQ.CgCsNtAokJHEK_Z9F7JozenRJBT4Oz3X_6vJUALZMV4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/storefront/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"storefront",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "CREATE [order]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJmaXJzdF9uYW1lIjoiR2FsYXh5IiwibGFzdF9uYW1lIjoiUnVubmVyIiwicGFzc3dvcmQiOiIkMmIkMTAkbHRFSXVCZFJaNEhQUHdCQUQzcFJ3LnpidjRxYUJaWHpmTXQ3Ny5ZOEdaLlI1MWRudWU1UUMifSwiaWF0IjoxNjQwNjQxMjEwfQ.CgCsNtAokJHEK_Z9F7JozenRJBT4Oz3X_6vJUALZMV4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"userId\": \"1\", \"orderStatus\": \"A\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/storefront/orders/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"storefront",
+								"orders",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD PRODUCT [order]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJmaXJzdF9uYW1lIjoiR2FsYXh5IiwibGFzdF9uYW1lIjoiUnVubmVyIiwicGFzc3dvcmQiOiIkMmIkMTAkbHRFSXVCZFJaNEhQUHdCQUQzcFJ3LnpidjRxYUJaWHpmTXQ3Ny5ZOEdaLlI1MWRudWU1UUMifSwiaWF0IjoxNjQwNjQxMjEwfQ.CgCsNtAokJHEK_Z9F7JozenRJBT4Oz3X_6vJUALZMV4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"name\": \"UX nano degree course\", \"price\": \"200.00\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/storefront/products/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"storefront",
+								"products",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "INDEX [order]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJmaXJzdF9uYW1lIjoiR2FsYXh5IiwibGFzdF9uYW1lIjoiUnVubmVyIiwicGFzc3dvcmQiOiIkMmIkMTAkbHRFSXVCZFJaNEhQUHdCQUQzcFJ3LnpidjRxYUJaWHpmTXQ3Ny5ZOEdaLlI1MWRudWU1UUMifSwiaWF0IjoxNjQwNjQxMjEwfQ.CgCsNtAokJHEK_Z9F7JozenRJBT4Oz3X_6vJUALZMV4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/storefront/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"storefront",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW [order]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJmaXJzdF9uYW1lIjoiR2FsYXh5IiwibGFzdF9uYW1lIjoiUnVubmVyIiwicGFzc3dvcmQiOiIkMmIkMTAkbHRFSXVCZFJaNEhQUHdCQUQzcFJ3LnpidjRxYUJaWHpmTXQ3Ny5ZOEdaLlI1MWRudWU1UUMifSwiaWF0IjoxNjQwNjQxMjEwfQ.CgCsNtAokJHEK_Z9F7JozenRJBT4Oz3X_6vJUALZMV4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/storefront/orders/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"storefront",
+								"orders",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW CURRENT [order]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJmaXJzdF9uYW1lIjoiR2FsYXh5IiwibGFzdF9uYW1lIjoiUnVubmVyIiwicGFzc3dvcmQiOiIkMmIkMTAkbHRFSXVCZFJaNEhQUHdCQUQzcFJ3LnpidjRxYUJaWHpmTXQ3Ny5ZOEdaLlI1MWRudWU1UUMifSwiaWF0IjoxNjQwNjQxMjEwfQ.CgCsNtAokJHEK_Z9F7JozenRJBT4Oz3X_6vJUALZMV4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/storefront/orders/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"storefront",
+								"orders",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
