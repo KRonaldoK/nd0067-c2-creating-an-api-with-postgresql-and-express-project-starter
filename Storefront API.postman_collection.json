@@ -297,7 +297,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \"name\": \"UX nano degree course\", \"price\": \"200.00\" }",
+							"raw": "{ \"productId\": \"1\", \"quantity\": \"60\" }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -305,7 +305,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/storefront/products/add",
+							"raw": "http://localhost:3000/storefront/orders/1/addProduct",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -313,8 +313,9 @@
 							"port": "3000",
 							"path": [
 								"storefront",
-								"products",
-								"add"
+								"orders",
+								"1",
+								"addProduct"
 							]
 						}
 					},
@@ -366,7 +367,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/storefront/orders/3",
+							"raw": "http://localhost:3000/storefront/orders/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -375,7 +376,7 @@
 							"path": [
 								"storefront",
 								"orders",
-								"3"
+								"1"
 							]
 						}
 					},
@@ -397,7 +398,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/storefront/orders/3",
+							"raw": "http://localhost:3000/storefront/orders/current/user/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -406,7 +407,9 @@
 							"path": [
 								"storefront",
 								"orders",
-								"3"
+								"current",
+								"user",
+								"1"
 							]
 						}
 					},
