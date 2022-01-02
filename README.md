@@ -22,6 +22,8 @@ For a Unix or macOS based system, use these lines at "scripts" section:
 
 ## Database
 
+*The database is running on port 5432*
+
 1) Using pgAdmin for PostgresSQL, open psql tool using the menu: Tools -> PSQL Tool.
 Current user must be postgres. In psql run the following:
 
@@ -66,6 +68,8 @@ This will kick off the watcher library and start running the application on the 
 or run 
 
 `node dist/server` for a dev server.
+
+*Application will run at port 3000*
 
 ## API endpoints
 
