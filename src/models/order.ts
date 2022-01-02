@@ -92,9 +92,12 @@ export class OrderStore {
 
   async addProduct(orderId: number, productId: number, quantity: number): Promise<OrderItem> {
 
-    await this.validateOrderStatus(orderId, productId);
+
 
     try {
+
+      await this.validateOrderStatus(orderId, productId)
+
       const sql = 'INSERT INTO "Order_Item" (order_id, product_id, quantity) VALUES($1, $2, $3) RETURNING *'
       //@ts-ignore
       const conn = await client.connect()
@@ -135,9 +138,10 @@ export class OrderStore {
 
   async removeProduct(orderId: number, productId: number): Promise<OrderItem> {
 
-    await this.validateOrderStatus(orderId, productId);
-
     try {
+
+      await this.validateOrderStatus(orderId, productId)
+
       const orderItemSql = 'DELETE FROM "Order_Item" WHERE order_id=($1) and product_id=($2) RETURNING *'
       //@ts-ignore
       const conn = await client.connect()

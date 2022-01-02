@@ -9,8 +9,13 @@ const dashboardRoutes = (app: express.Application) => {
 const dashboard = new DashboardQueries()
 
 const productsInOrders = async (_req: Request, res: Response) => {
-  const products = await dashboard.productsInOrders()
-  res.json(products)
+  try{
+    const products = await dashboard.productsInOrders()
+    res.json(products)
+  } catch(err) {
+    res.status(500)
+    res.json(err)
+  }
 }
 
 export default dashboardRoutes

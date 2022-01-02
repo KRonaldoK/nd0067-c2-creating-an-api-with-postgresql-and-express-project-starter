@@ -74,23 +74,27 @@ export class UserStore {
   }
 
   async authenticate(firstName: string, lastName: string, password: string): Promise<User | null> {
-    // @ts-ignore
-    const conn = await client.connect()
-    const sql = 'SELECT * FROM "User" WHERE first_name=($1) and last_name=($2)'
+    try{
+        // @ts-ignore
+        const conn = await client.connect()
+        const sql = 'SELECT * FROM "User" WHERE first_name=($1) and last_name=($2)'
 
-    const result = await conn.query(sql, [firstName, lastName])
+        const result = await conn.query(sql, [firstName, lastName])
 
-    if(result.rows.length) {
+        if(result.rows.length) {
 
-      const user = result.rows[0]
+          const user = result.rows[0]
 
-      if (bcrypt.compareSync(password+BCRYPT_PASSWORD, user.password)) {
-        //console.log(`User ${user.id} authenticated.`)
-        return user
-      }
+          if (bcrypt.compareSync(password+BCRYPT_PASSWORD, user.password)) {
+            //console.log(`User ${user.id} authenticated.`)
+            return user
+          }
+        }
+
+        return null
+    } catch(err) {
+      throw new Error(`unable to authenticate user (${firstName}): ${err}`)
     }
-
-    return null
   }
 
   async delete(id: number): Promise<User> {
