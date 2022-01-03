@@ -1,6 +1,6 @@
-import express, { Request, Response } from 'express'
-import { Order, OrderStore } from '../models/order'
-import { verifyAuthToken } from '../utilities/authenticator'
+import express, {Request, Response} from 'express'
+import {Order, OrderStatus, OrderStore} from '../models/order'
+import {decodeAuthorizationHeader, verifyAuthToken} from '../utilities/authenticator'
 
 const store = new OrderStore()
 
@@ -35,15 +35,21 @@ const showCurrent = async (req: Request, res: Response) => {
 }
 
 const create = async (req: Request, res: Response) => {
+
   try {
+
+    const decoded = res.locals.jwtDecoded
+
     const order: Order = {
       id: 0,
+      //user_id: parseInt(decoded.id),
       user_id: parseInt(req.body.userId),
-      status: req.body.orderStatus
+      status: OrderStatus.Active
     }
 
     const newOrder = await store.create(order)
     res.json(newOrder)
+
   } catch(err) {
     res.status(500)
     res.json(err)

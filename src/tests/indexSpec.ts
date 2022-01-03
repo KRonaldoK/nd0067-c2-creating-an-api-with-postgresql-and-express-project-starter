@@ -4,7 +4,6 @@ import { getUserId } from '../utilities/authenticator'
 
 import { User, UserStore } from '../models/user'
 import { ProductStore } from '../models/product'
-import {OrderStatus} from "../models/order";
 
 const request = supertest(app);
 
@@ -129,11 +128,9 @@ describe('Test endpoint responses', () => {
 
     it('should create an order', async (done) => {
       const userIdDecoded = getUserId(jsonToken)
-      const orderInput = { userId: userIdDecoded, orderStatus: OrderStatus.Active }
-
       const response = await request.post(
         '/storefront/orders/add'
-      ).auth( jsonToken, { type: 'bearer' }).send(orderInput);
+      ).auth( jsonToken, { type: 'bearer' }).send({userId: userIdDecoded});
       expect(response.status).toBe(200)
       expect(response.body).toBeTruthy()
       orderId = response.body.id

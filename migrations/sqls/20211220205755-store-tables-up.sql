@@ -1,5 +1,5 @@
 -- auto-generated definition
-create table "Product"
+create table if not exists "Product"
 (
     id    serial  not null
         constraint "Product_pkey"
@@ -14,7 +14,7 @@ alter table "Product"
     owner to postgres;
 
 -- auto-generated definition
-create table "User"
+create table if not exists "User"
 (
     id         serial not null
         constraint "User_pkey"
@@ -30,7 +30,7 @@ alter table "User"
     owner to postgres;
 
 -- auto-generated definition
-create table "Order"
+create table if not exists "Order"
 (
     id      serial not null
         constraint "Order_pkey"
@@ -45,7 +45,7 @@ alter table "Order"
     owner to postgres;
 
 -- auto-generated definition
-create table "Order_Item"
+create table if not exists "Order_Item"
 (
     order_id   integer not null
         constraint fk_order_item_order

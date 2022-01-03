@@ -23,14 +23,14 @@ export class OrderStore {
   async index(): Promise<Order[]> {
     try {
       // @ts-ignore
-      const conn = await client.connect();
-      const sql = 'SELECT * FROM "Order" o inner join "Order_Item" oi on o.id = oi.order_id';
+      const conn = await client.connect()
+      const sql = 'SELECT * FROM "Order" o inner join "Order_Item" oi on o.id = oi.order_id'
 
-      const result = await conn.query(sql);
+      const result = await conn.query(sql)
 
-      conn.release();
+      conn.release()
 
-      return result.rows;
+      return result.rows
     } catch (err) {
       throw new Error(`Could not get orders. Error: ${err}`)
     }

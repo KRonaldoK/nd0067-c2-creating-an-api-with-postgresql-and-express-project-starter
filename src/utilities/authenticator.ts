@@ -9,6 +9,7 @@ export const verifyAuthToken = (req: Request, res: Response, next: NextFunction)
     const token = authorizationHeader.split(' ')[1]
     // @ts-ignore
     const decoded = jwt.verify(token, process.env.TOKEN_SECRET)
+    res.locals.jwtDecoded = decoded
     next()
   } catch (error) {
     res.status(401)
@@ -47,4 +48,12 @@ export const getUserId = (token: string) => {
   } catch(err) {
     return
   }
+}
+
+export const decodeAuthorizationHeader = (authorizationHeader: string | undefined) => {
+  // @ts-ignore
+  const token = authorizationHeader.split(' ')[1]
+  // @ts-ignore
+  const decoded: JwtPayload = jwt.verify(token, process.env.TOKEN_SECRET)
+  return decoded
 }
