@@ -257,7 +257,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \"userId\": \"1\", \"orderStatus\": \"A\" }",
+							"raw": "{ \"userId\": \"1\"}",
 							"options": {
 								"raw": {
 									"language": "json"
